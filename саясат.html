@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyNEWS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #0044cc, #0066ff);
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        nav {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+        
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .
+        .card {
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+        opacity: 0.5;
+        transition: opacity 0.3s;
+    }
+    .card:hover {
+        opacity: 1;
+    }
+        .main-article {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .main-article:hover {
+            transform: scale(1.03);
+            opacity: 1;
+        }
+        .main-article img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .main-article h2 {
+            color: #333;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            background: #ccc;
+        }
+        .article {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0.5; /* Set initial opacity */
+            transition: opacity 0.3s ease-in-out; /* Add transition for opacity */
+        }
+        .article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+        }
+        .article img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .article p a {
+            color: #0044cc;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article p a:hover {
+            color: #ff6600;
+        }
+         footer{
+            background-color: #343434;
+        }
+
+        footer h4{
+            color: white;
+            text-transform: uppercase;
+            font-size: 16px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 3px;
+            margin-top: 10px;
+        }
+
+        footer a{
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: auto;
+            border-radius: 60%;
+            transition: transform 0.3s;
+            margin: center;
+        }
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+        .rounded-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+        .progress-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 15px;
+    background-color: var(--bar-color, #333);
+    border-radius: 5px;
+    animation: load-bar 2s linear var(--bar-delay, 0s) infinite;
+}
+
+@keyframes load-bar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+        footer p {
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<header>
+    <h1><img src="https://logos-world.net/wp-content/uploads/2023/04/Sky-News-Logo-1997.png" alt="Жаңалықтар Сайты " width="100">Жаңалықтар</h1>
+    <br>
+<style>
+    .menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .menu > li {
+        position: relative;
+        margin: 0 20px;
+    }
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: blue;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        list-style: none;
+    }
+    .menu > li:hover .submenu {
+        display: block;
+    }
+    .submenu > li {
+        margin: 5px 0;
+    }
+
+    /* Контейнер стилі */
+.share-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Бөлісу батырмасы */
+.share-btn {
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.share-btn:hover {
+    background-color: #ff6600;
+    transform: scale(1.1);
+}
+
+/* Бөлісу меню */
+
+.share-menu {
+    width: 200px;
+    height: 200px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    margin-left: 1300px;
+    margin-top: 400px;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.share-menu a {
+    display: block;
+    margin: 5px 0;
+    color: #0044cc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.share-menu a:hover {
+    color: #ff6600;
+}
+.share-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 130, 240);
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .share-menu {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            display: none;
+            z-index: 10;
+        }
+
+        .share-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .share-menu ul li {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .share-menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .share-menu ul li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .share-menu ul li .icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 16px;
+            color: white;
+        }
+
+        .icon.instagram {
+            background-color: #e4405f;
+        }
+
+        .icon.telegram {
+            background-color: #0088cc;
+        }
+
+        .icon.facebook {
+            background-color: #4267B2;
+        }
+</style>
+</header>
+       
+
+<style>
+    .side-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: blue;
+        padding: 20px;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s;
+    }
+    .side-menu.active {
+        transform: translateX(-300px);
+    }
+</style>
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SKY-NEWS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="file:///C:/Users/user/Desktop/sky-news.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="file:///C:/Users/user/Desktop/%D0%B1%D0%B0%D0%B9%D0%BB%D0%B0%D0%BD%D1%8B%D1%81.html">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NEWS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="file:///C:/Users/User/Desktop/sky-newws-smart.html">SPORT</a></li>
+            <li><a class="dropdown-item" href="file:///C:/Users/User/Desktop/саясат.html">Politics</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="file:///C:/Users/User/Desktop/Әлемде.html">In the world</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<script>
+    const menuButton = document.getElementById("toggle-menu");
+    const sideMenu = document.querySelector(".side-menu");
+    menuButton.addEventListener("click", () => {
+        sideMenu.classList.toggle("active");
+    });
+</script>
+ <div class="grid-container">
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/4f77615ac40730e0.webp?version=1" alt="Жаңалық 1 суреті">
+            <p><a href="https://kaz.nur.kz/politics/2198090-toqaev-ulttyq-olimpiada-komitetining-prezidenti-gennadii-golovkindi-qabyldady/">Тоқаев Геннадий Головкинді қабылдады</a></p>
+        </div>
+
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/fe910704a69d854b.webp?version=1" alt="Мақала 1 суреті">
+            <p><a href="https://kaz.nur.kz/politics/2197032-toqaev-qyrgyzstan-prezidenti-sadyr-zhaparovpen-telefon-arqyly-soilesti/">Тоқаев Қырғызстан президенті Садыр Жапаровты туған күнімен құттықтады</a></p>
+        </div>
+
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/2393f24683079208.webp?version=1" alt="Жаңалық 2 суреті">
+            <p><a href="https://kaz.nur.kz/politics/2173689-prezident-ustel-tennisinen-aziia-chempionatynyng-finaldyq-oiyndaryn-tamashalady/">Президент үстел теннисінен Азия чемпионатының финалдық ойындарын тамашалады.</a></p>
+        </div>
+
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/715a6ed49151afa7.webp?version=1" alt="Мақала 2 суреті">
+            <p><a href="https://kaz.nur.kz/politics/2196485-qazaqstan-qorganys-ministrining-ongtustik-koreiaga-zhosparlagan-sapary-toqtatyldy/">Қазақстан қорғаныс министрінің Оңтүстік Кореяға жоспарланған сапары тоқтатылды </a></p>
+        </div>
+
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/125a8c20aca4d471.webp?version=1" alt="Мақала 2 суреті">
+            <p><a href="https://kaz.nur.kz/society/2173626-mektepterde-zangsyz-aqsha-zhinau-oqu-agartu-ministrligi-malimdeme-zhasady/">Қазақстанда білім беру ұйымдарының аумағында заңсыз ақша жинауға мұғалімдерді тарту заңсыз екені ескертілді.</a></p>
+        </div>
+
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/cd52fdfeb53efe4b.webp?version=1" alt="Мақала 2 суреті">
+            <p><a href="https://kaz.nur.kz/society/2174615-talgardagy-qylmys-iim-okili-ustalgandardyng-politseilermen-tuystyq-bailanysy-bar-zhogyn-aitty/">Талғардағы қылмыс: ІІМ өкілі ұсталғандардың полицейлермен туыстық байланысы бар-жоғын айтты.</a></p>
+        </div>
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/1200x675/3031ca898d18c788.webp?version=1" alt="Мақала 1 суреті">
+            <p><a href="https://kaz.nur.kz/world/2195750-qytai-aqsh-qa-qarsy-sanktsiia-engizdi/">Қытай АҚШ-қа қарсы санкция енгізді</a></p>
+        </div>
+        <div class="article">
+            <img src="https://cdn.nur.kz/images/720x405/8ba54e2776da6a76.webp?version=1" alt="Мақала 1 суреті">
+            <p><a href="https://kaz.nur.kz/society/2195805-eilimzding-iri-qalalarynda-bugin-aua-raiy-qandai-bolady/">Еліміздің ірі қалаларында бүгін ауа райы қандай болады</a></p>
+        </div>
+
+    </div>
+</div>
+
+<div class="progress-bars">
+    <div class="progress-bar" style="--bar-color: #ff0000; --bar-delay: 0s;"></div>
+    <div class="progress-bar" style="--bar-color: #00ff00; --bar-delay: 0.2s;"></div>
+    <div class="progress-bar" style="--bar-color: #0000ff; --bar-delay: 0.4s;"></div>
+    <div class="progress-bar" style="--bar-color: #ff9900; --bar-delay: 0.6s;"></div>
+</div>
+
+<div class="share-button">&#x1f517;</div>
+        <div class="share-menu">
+            <ul>
+                <li onclick="window.open('https://instagram.com', '_blank')">
+                    <span class="icon instagram">I</span> Instagram
+                </li>
+                <li onclick="window.open('https://telegram.org', '_blank')">
+                    <span class="icon telegram">T</span> Telegram
+                </li>
+                <li onclick="window.open('https://facebook.com', '_blank')">
+                    <span class="icon facebook">F</span> Facebook
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            // Share Button Toggle
+            const shareButton = document.querySelector('.share-button');
+            const shareMenu = document.querySelector('.share-menu');
+    
+            shareButton.addEventListener('click', () => {
+                shareMenu.style.display = 
+                    shareMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        </script>
+
+<footer>
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <h4>Информация</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Связь</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <h4>Контакты</h4>
+                <ul class="list-unstyled">
+                    <li><a href="tel:+77761589678">+7 776 158 96-78</a></li>
+                    <li><a href="tel:+77768726172">+7 776 872 61-72</a></li>
+                    <li><a href="tel:+77761595525">+7 776 159 55-25</a></li>
+                </ul>
+            </div>
+    </div>
+</section>
+</footer>       
